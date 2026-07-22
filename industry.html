@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industry Coverage — NexPress Business Intelligence</title>
+  <meta name="description" content="NexPress covers the industries that drive the global economy — from technology and financial services to healthcare, energy, and retail.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .ind-hero { background:linear-gradient(135deg,#0D1117,#1a2a5e); padding:clamp(3.5rem,7vw,7rem) 0; }
+    .industry-full-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:900px){ .industry-full-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:540px){ .industry-full-grid{grid-template-columns:1fr;} }
+    .ind-card { border-radius:var(--r-xl); overflow:hidden; position:relative; cursor:pointer; aspect-ratio:4/3; display:block; text-decoration:none; }
+    .ind-img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+    .ind-card:hover .ind-img { transform:scale(1.07); }
+    .ind-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(13,17,23,.9) 0%,rgba(13,17,23,.15) 60%); display:flex; flex-direction:column; justify-content:flex-end; padding:1.75rem; transition:background var(--trans-base); }
+    .ind-card:hover .ind-overlay { background:linear-gradient(to top,rgba(13,17,23,.95) 0%,rgba(13,17,23,.3) 60%); }
+    .ind-tag { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-xs); letter-spacing:.06em; text-transform:uppercase; color:#7B93FF; margin-bottom:.375rem; }
+    .ind-title { font-family:var(--ff-display); font-weight:var(--fw-extrabold); font-size:var(--fs-xl); color:#fff; letter-spacing:var(--ls-tight); margin-bottom:.375rem; }
+    .ind-meta { font-size:var(--fs-xs); color:rgba(255,255,255,.55); }
+    .ind-learn { display:flex; align-items:center; gap:.5rem; font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-xs); color:#7B93FF; margin-top:.875rem; opacity:0; transform:translateY(6px); transition:all var(--trans-base); }
+    .ind-card:hover .ind-learn { opacity:1; transform:translateY(0); }
+    .coverage-table-wrap { overflow-x:auto; }
+    .coverage-table { width:100%; border-collapse:collapse; }
+    .coverage-table th { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-xs); letter-spacing:.05em; text-transform:uppercase; color:var(--c-ink-4); padding:.875rem 1rem; text-align:left; border-bottom:2px solid var(--c-border); }
+    .coverage-table td { padding:.875rem 1rem; border-bottom:1px solid var(--c-border); font-size:var(--fs-sm); color:var(--c-ink-3); vertical-align:top; }
+    .coverage-table tr:last-child td { border-bottom:none; }
+    .coverage-table tr:hover td { background:var(--c-surface); }
+    .cov-ind { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-sm); color:var(--c-ink); }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="siteNavbar" role="banner"></header>
+  <div id="siteModals"></div>
+
+  <main>
+    <section class="ind-hero" aria-label="Industry hero">
+      <div class="container">
+        <div style="max-width:680px;">
+          <div style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .875rem;background:rgba(26,63,191,.2);border:1px solid rgba(26,63,191,.4);border-radius:var(--r-pill);font-family:var(--ff-display);font-weight:var(--fw-semibold);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:#7B93FF;margin-bottom:1.5rem;">Industry Coverage</div>
+          <h1 style="font-family:var(--ff-display);font-size:clamp(var(--fs-3xl),5vw,var(--fs-5xl));font-weight:var(--fw-extrabold);letter-spacing:var(--ls-tight);line-height:var(--lh-tight);color:#fff;margin-bottom:1.25rem;">Deep Expertise Across<br><span style="background:linear-gradient(135deg,#7B93FF,#5B7BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Every Major Sector</span></h1>
+          <p style="font-size:var(--fs-md);color:rgba(226,232,240,.7);line-height:var(--lh-relaxed);">Our analysts are embedded in the sectors they cover — giving our clients genuinely expert, current intelligence rather than generalist commentary.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header"><div class="section-eyebrow">Sectors We Cover</div><h2 class="section-title">18 Industries, One Platform</h2><p class="section-lead">From global megacap sectors to high-growth emerging verticals — NexPress has you covered.</p></div>
+        <div class="industry-full-grid reveal">
+          <a href="blog.html?cat=Technology" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Technology" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Technology &amp; AI</div>
+              <div class="ind-meta">Enterprise software · AI · Semiconductors · Cloud</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html?cat=Finance" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="Financial Services" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Financial Services</div>
+              <div class="ind-meta">Banking · Capital markets · Private equity · Insurance</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Healthcare" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Healthcare &amp; Life Sciences</div>
+              <div class="ind-meta">Pharma · Medtech · Health systems · Biotech</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Professional Services" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Professional Services</div>
+              <div class="ind-meta">Consulting · Legal · Accounting · Research</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html?cat=Operations" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Industrial & Manufacturing" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Industrial &amp; Manufacturing</div>
+              <div class="ind-meta">Automotive · Aerospace · Chemicals · Supply chain</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=600&q=80" alt="Energy & Resources" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Energy &amp; Natural Resources</div>
+              <div class="ind-meta">Oil &amp; gas · Renewables · Utilities · Mining</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80" alt="Consumer & Retail" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Consumer &amp; Retail</div>
+              <div class="ind-meta">E-commerce · FMCG · Luxury · Hospitality</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1558403194-611308249627?w=600&q=80" alt="Real Estate" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Real Estate &amp; Infrastructure</div>
+              <div class="ind-meta">Commercial RE · REITs · Urban development</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+          <a href="blog.html" class="ind-card">
+            <img class="ind-img" src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=80" alt="Government & Policy" loading="lazy">
+            <div class="ind-overlay">
+              <div class="ind-tag">Sector</div>
+              <div class="ind-title">Government &amp; Public Sector</div>
+              <div class="ind-meta">Policy · Defense · Public finance · Regulation</div>
+              <div class="ind-learn">Explore coverage <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage Depth Table -->
+    <section class="section" style="background:var(--c-surface);">
+      <div class="container">
+        <div class="section-header"><div class="section-eyebrow">Coverage Depth</div><h2 class="section-title">What We Cover in Each Sector</h2></div>
+        <div class="coverage-table-wrap reveal">
+          <table class="coverage-table">
+            <thead>
+              <tr>
+                <th>Industry</th>
+                <th>Coverage Focus</th>
+                <th>Report Frequency</th>
+                <th>Premium Coverage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="cov-ind">Technology &amp; AI</span></td><td>Enterprise AI, SaaS, semiconductors, cybersecurity, digital infrastructure</td><td>Weekly</td><td><span class="badge badge-accent">Yes</span></td></tr>
+              <tr><td><span class="cov-ind">Financial Services</span></td><td>Banking strategy, capital markets, private equity, fintech, insurance</td><td>Weekly</td><td><span class="badge badge-accent">Yes</span></td></tr>
+              <tr><td><span class="cov-ind">Healthcare</span></td><td>Health systems, pharma strategy, digital health, life sciences</td><td>Bi-weekly</td><td><span class="badge badge-accent">Yes</span></td></tr>
+              <tr><td><span class="cov-ind">Industrial &amp; Manufacturing</span></td><td>Supply chain, operations, automation, aerospace, automotive</td><td>Bi-weekly</td><td><span class="badge badge-accent">Yes</span></td></tr>
+              <tr><td><span class="cov-ind">Energy &amp; Resources</span></td><td>Energy transition, oil &amp; gas strategy, renewables, utilities</td><td>Monthly</td><td><span class="badge badge-surface">Select</span></td></tr>
+              <tr><td><span class="cov-ind">Consumer &amp; Retail</span></td><td>Consumer behavior, e-commerce, brand strategy, hospitality</td><td>Monthly</td><td><span class="badge badge-surface">Select</span></td></tr>
+              <tr><td><span class="cov-ind">Government &amp; Policy</span></td><td>Regulatory intelligence, public policy, geopolitics, defense</td><td>Bi-weekly</td><td><span class="badge badge-accent">Yes</span></td></tr>
+              <tr><td><span class="cov-ind">Real Estate</span></td><td>Commercial RE, REITs, urban development, PropTech</td><td>Monthly</td><td><span class="badge badge-surface">Select</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div style="background:linear-gradient(135deg,var(--c-accent),var(--c-accent-mid));border-radius:var(--r-2xl);padding:clamp(3rem,6vw,5rem);text-align:center;" class="reveal">
+          <h2 style="font-family:var(--ff-display);font-size:clamp(var(--fs-xl),3.5vw,var(--fs-3xl));font-weight:var(--fw-extrabold);color:#fff;margin-bottom:1rem;">Need Coverage in a Specific Sector?</h2>
+          <p style="color:rgba(255,255,255,.75);font-size:var(--fs-md);max-width:500px;margin:0 auto 2rem;line-height:1.7;">Our research team can provide custom sector analysis tailored to your specific strategic questions and markets.</p>
+          <button class="btn btn-white btn-lg" data-cta data-cta-title="Custom Sector Research" data-cta-desc="Tell us which sectors matter to you and we'll put together the right coverage package.">Request Custom Coverage</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="siteFooter"></footer>
+  <script src="js/page-shell.js"></script>
+  <script>PageShell.init('Industry');</script>
+  <script src="js/main.js"></script>
+</body>
+</html>

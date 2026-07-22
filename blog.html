@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — NexPress Business Intelligence</title>
+  <meta name="description" content="Browse all NexPress articles, research reports, and expert commentary on strategy, finance, technology, and leadership.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar" id="siteNavbar" role="banner"></header>
+<div id="siteModals"></div>
+
+<main>
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-eyebrow">Blog &amp; Insights</div>
+      <h1 class="page-hero-title">Expert Analysis. Strategic Depth.</h1>
+      <p class="page-hero-lead">Browse our full library of research, commentary, and strategic briefings — written for leaders who make the decisions that matter.</p>
+    </div>
+  </section>
+
+  <!-- Filters + Grid -->
+  <section class="section">
+    <div class="container">
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="group" aria-label="Filter by category" id="filterBar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Technology">Technology</button>
+        <button class="filter-btn" data-filter="Finance">Finance</button>
+        <button class="filter-btn" data-filter="Strategy">Strategy</button>
+        <button class="filter-btn" data-filter="Leadership">Leadership</button>
+        <button class="filter-btn" data-filter="Operations">Operations</button>
+        <button class="filter-btn" data-filter="Industry">Industry</button>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="grid-3" id="blogGrid"></div>
+
+      <!-- Empty State -->
+      <div id="emptyState" style="display:none; text-align:center; padding:4rem 0;">
+        <p style="font-size:var(--fs-lg);color:var(--c-ink-4);font-family:var(--ff-display);">No articles found in this category.</p>
+        <button class="btn btn-secondary" style="margin-top:1rem;" data-filter="all" onclick="document.querySelector('.filter-btn[data-filter=all]').click()">View All Articles</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="section" style="background:var(--c-surface);">
+    <div class="container">
+      <div class="newsletter-strip reveal">
+        <div>
+          <div class="newsletter-strip-title">Never Miss an Insight</div>
+          <p class="newsletter-strip-desc">Subscribe to the NexPress weekly briefing — curated intelligence for enterprise leaders, every Friday morning.</p>
+        </div>
+        <div>
+          <form class="newsletter-strip-form" onsubmit="return false;">
+            <div class="newsletter-strip-input-row">
+              <input type="email" class="newsletter-strip-input" placeholder="Enter your work email" required>
+              <button type="button" class="btn btn-white" data-cta data-cta-title="Subscribe to NexPress" data-cta-desc="Get weekly premium insights from NexPress delivered to your inbox.">Subscribe Free</button>
+            </div>
+            <p class="newsletter-strip-note">45,000+ subscribers. Unsubscribe anytime.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true">
+  <div class="search-box">
+    <div class="search-inner">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="searchInput" placeholder="Search insights, reports, topics…" autocomplete="off">
+    </div>
+    <button class="search-close" id="searchClose">Press Esc to close</button>
+  </div>
+</div>
+
+<!-- CTA Modal -->
+<div class="modal-overlay" id="ctaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <div id="ctaFormView">
+      <div class="modal-header">
+        <div class="modal-eyebrow">NexPress Intelligence</div>
+        <h2 class="modal-title" id="modalTitle">Get Exclusive Insights</h2>
+        <p class="modal-desc" id="modalDesc">Join 45,000+ executives receiving premium business intelligence.</p>
+      </div>
+      <form class="modal-form" id="ctaForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group"><label class="form-label" for="ctaName">Full Name *</label><input class="form-input" id="ctaName" type="text" placeholder="Jane Smith" required></div>
+          <div class="form-group"><label class="form-label" for="ctaEmail">Work Email *</label><input class="form-input" id="ctaEmail" type="email" placeholder="jane@company.com" required></div>
+        </div>
+        <div class="form-group"><label class="form-label" for="ctaCompany">Company</label><input class="form-input" id="ctaCompany" type="text" placeholder="Company name"></div>
+        <div class="form-group"><label class="form-label" for="ctaMessage">What are you looking for?</label><textarea class="form-input" id="ctaMessage" rows="3" placeholder="Tell us about your needs…"></textarea></div>
+        <div class="modal-actions">
+          <label class="checkbox-wrap"><input type="checkbox" id="ctaConsent" required><span class="checkbox-label">I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms &amp; Conditions</a></span></label>
+          <button type="submit" class="btn btn-primary btn-lg" id="ctaSubmit" disabled style="width:100%;justify-content:center;">Send Request</button>
+        </div>
+      </form>
+    </div>
+    <div class="modal-success" id="ctaSuccess">
+      <div class="modal-success-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3 style="font-family:var(--ff-display);font-size:var(--fs-xl);font-weight:var(--fw-extrabold);color:var(--c-ink);margin-bottom:0.5rem;">You're In!</h3>
+      <p style="font-size:var(--fs-sm);color:var(--c-ink-3);">Thank you! A team member will be in touch within 24 hours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer" id="siteFooter"></footer>
+
+<script src="data/blogs-data.js"></script>
+<script src="js/page-shell.js"></script>
+<script src="js/main.js"></script>
+<script>PageShell.init('Blog');</script>
+<script>
+(function() {
+  const grid = document.getElementById('blogGrid');
+  const emptyState = document.getElementById('emptyState');
+  const filterBar = document.getElementById('filterBar');
+  let activeFilter = 'all';
+
+  // Get category from URL parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get('cat');
+
+  function renderBlogs(filter) {
+    const data = filter === 'all' ? BLOGS_DATA : BLOGS_DATA.filter(b => b.category === filter);
+    if (!data.length) {
+      grid.innerHTML = '';
+      emptyState.style.display = 'block';
+      return;
+    }
+    emptyState.style.display = 'none';
+    grid.innerHTML = data.map((blog, i) => `
+      <article class="blog-card reveal${i < 3 ? '' : ' reveal-delay-' + (i % 5 + 1)}">
+        <a href="blog-post.html?id=${blog.id}" class="blog-card-image">
+          <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-cat">${blog.category}</span>
+            <span class="blog-card-date">${blog.date}</span>
+          </div>
+          <h2 class="blog-card-title"><a href="blog-post.html?id=${blog.id}">${blog.title}</a></h2>
+          <p class="blog-card-excerpt">${blog.excerpt}</p>
+          <div class="blog-card-footer">
+            <a href="blog-post.html?id=${blog.id}" class="blog-card-read">Read More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <span class="blog-card-readtime"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${blog.readTime}</span>
+          </div>
+        </div>
+      </article>
+    `).join('');
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible'); io.unobserve(e.target);}}), {threshold:0.1});
+    grid.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  filterBar.addEventListener('click', e => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderBlogs(btn.dataset.filter);
+  });
+
+  // If URL has category parameter, activate that filter
+  if (categoryParam) {
+    const categoryBtn = filterBar.querySelector(`[data-filter="${categoryParam}"]`);
+    if (categoryBtn) {
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      categoryBtn.classList.add('active');
+      renderBlogs(categoryParam);
+    } else {
+      renderBlogs('all');
+    }
+  } else {
+    renderBlogs('all');
+  }
+})();
+</script>
+</body>
+</html>

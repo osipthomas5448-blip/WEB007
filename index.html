@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexPress — Premium Business Intelligence & Consulting Insights</title>
+  <meta name="description" content="NexPress delivers premium business intelligence, consulting insights, and strategic analysis for enterprise leaders. Trusted by 45,000+ executives worldwide.">
+  <meta name="keywords" content="business intelligence, consulting, enterprise insights, strategy, finance, leadership">
+  <meta property="og:title" content="NexPress — Premium Business Intelligence">
+  <meta property="og:description" content="Premium business intelligence and consulting insights for enterprise leaders.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://nexpress.com/">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ---- Homepage-specific styles ---- */
+    .hero {
+      background: var(--c-ink);
+      color: var(--c-dark-text);
+      padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 6rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 60%;
+      height: 140%;
+      background: radial-gradient(ellipse at center, rgba(26,63,191,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--c-dark-border);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.875rem;
+      background: rgba(26,63,191,0.2);
+      border: 1px solid rgba(26,63,191,0.4);
+      border-radius: var(--r-pill);
+      font-family: var(--ff-display);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-xs);
+      letter-spacing: var(--ls-wide);
+      text-transform: uppercase;
+      color: #7B93FF;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow-dot { width: 6px; height: 6px; background: #7B93FF; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(var(--fs-3xl), 5vw, var(--fs-hero));
+      font-weight: var(--fw-extrabold);
+      letter-spacing: var(--ls-tight);
+      line-height: var(--lh-tight);
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title-accent {
+      background: linear-gradient(135deg, #7B93FF 0%, #5B7BFF 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-lead {
+      font-size: var(--fs-md);
+      color: rgba(226,232,240,0.75);
+      line-height: var(--lh-relaxed);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2.5rem; }
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--c-dark-border);
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: var(--ff-display);
+      font-weight: var(--fw-extrabold);
+      font-size: var(--fs-2xl);
+      color: #fff;
+      line-height: 1;
+    }
+    .hero-stat-label { font-size: var(--fs-xs); color: var(--c-dark-muted); margin-top: 0.25rem; font-family: var(--ff-display); }
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-main {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow-xl);
+    }
+    .hero-image-badge {
+      position: absolute;
+      bottom: -1rem;
+      left: -1rem;
+      background: var(--c-accent);
+      color: #fff;
+      border-radius: var(--r-lg);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-image-badge-label { font-family: var(--ff-display); font-weight: var(--fw-semibold); font-size: var(--fs-xs); opacity: 0.8; }
+    .hero-image-badge-value { font-family: var(--ff-display); font-weight: var(--fw-extrabold); font-size: var(--fs-xl); line-height: 1; }
+    .hero-image-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(13,17,23,0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--c-dark-border);
+      border-radius: var(--r-pill);
+      padding: 0.35rem 0.875rem;
+      font-family: var(--ff-display);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-xs);
+      color: #fff;
+    }
+    /* Featured Grid */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) { .featured-grid { grid-template-columns: 1fr; } }
+    .featured-main-card {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .featured-main-img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .featured-main-card:hover .featured-main-img { transform: scale(1.04); }
+    .featured-main-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,17,23,0.92) 0%, rgba(13,17,23,0.2) 55%);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .featured-side { display: flex; flex-direction: column; gap: 1rem; }
+    .featured-side-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.25rem;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      cursor: pointer;
+      transition: all var(--trans-base);
+      text-decoration: none;
+    }
+    .featured-side-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .featured-side-img { width: 80px; height: 70px; object-fit: cover; border-radius: var(--r-md); flex-shrink: 0; }
+    .featured-side-cat { font-family: var(--ff-display); font-weight: var(--fw-semibold); font-size: var(--fs-xs); color: var(--c-accent); text-transform: uppercase; letter-spacing: 0.05em; }
+    .featured-side-title { font-family: var(--ff-display); font-weight: var(--fw-bold); font-size: var(--fs-sm); color: var(--c-ink); line-height: var(--lh-snug); margin-top: 0.25rem; }
+    .featured-side-date { font-size: var(--fs-xs); color: var(--c-ink-4); margin-top: 0.375rem; }
+    /* Category Strip */
+    .cat-strip {
+      display: flex;
+      gap: 0.625rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+      scrollbar-width: none;
+    }
+    .cat-strip::-webkit-scrollbar { display: none; }
+    .cat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.5rem 1.125rem;
+      border-radius: var(--r-pill);
+      font-family: var(--ff-display);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-xs);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all var(--trans-fast);
+      border: 1.5px solid var(--c-border);
+      color: var(--c-ink-3);
+      background: var(--c-bg);
+      text-decoration: none;
+    }
+    .cat-pill:hover { border-color: var(--c-accent); color: var(--c-accent); background: var(--c-accent-soft); }
+    .cat-pill.active { border-color: var(--c-accent); background: var(--c-accent); color: #fff; }
+    /* Dark CTA Section */
+    .cta-dark {
+      background: linear-gradient(135deg, var(--c-ink) 0%, #1a2a5e 100%);
+      border-radius: var(--r-2xl);
+      padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    @media (max-width: 720px) { .cta-dark { grid-template-columns: 1fr; } }
+    .cta-dark-eyebrow {
+      font-family: var(--ff-display);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-xs);
+      letter-spacing: var(--ls-wider);
+      text-transform: uppercase;
+      color: #7B93FF;
+      margin-bottom: 1rem;
+    }
+    .cta-dark-title {
+      font-family: var(--ff-display);
+      font-size: clamp(var(--fs-xl), 3.5vw, var(--fs-3xl));
+      font-weight: var(--fw-extrabold);
+      color: #fff;
+      letter-spacing: var(--ls-tight);
+      line-height: var(--lh-snug);
+      margin-bottom: 1rem;
+    }
+    .cta-dark-desc { color: rgba(226,232,240,0.65); font-size: var(--fs-base); line-height: var(--lh-relaxed); }
+    .cta-dark-features { display: flex; flex-direction: column; gap: 0.875rem; }
+    .cta-dark-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-lg);
+    }
+    .cta-dark-feature-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: rgba(26,63,191,0.3);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7B93FF;
+    }
+    .cta-dark-feature-icon svg { width: 18px; height: 18px; }
+    .cta-dark-feature-text { font-family: var(--ff-display); font-size: var(--fs-sm); color: rgba(226,232,240,0.85); font-weight: var(--fw-medium); }
+  </style>
+</head>
+<body>
+
+<header class="navbar" id="siteNavbar" role="banner"></header>
+<div id="siteModals"></div>
+
+<main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Hero section">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-eyebrow">
+              <span class="hero-eyebrow-dot"></span>
+              New Report Available
+            </div>
+            <h1 class="hero-title">
+              Enterprise Strategy<br>
+              for a <span class="hero-title-accent">Shifting World</span>
+            </h1>
+            <p class="hero-lead">
+              NexPress delivers the intelligence, analysis, and strategic frameworks that help enterprise leaders make better decisions in complex, fast-moving markets.
+            </p>
+            <div class="hero-actions">
+              <button class="btn btn-white btn-lg" data-cta data-cta-title="Access Premium Insights" data-cta-desc="Get our full library of research reports, case studies, and strategic briefings.">
+                Access Reports
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <a href="blog.html" class="btn btn-ghost btn-lg" style="color:rgba(226,232,240,0.8);border-color:rgba(226,232,240,0.25);">
+                Browse Insights
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <div class="hero-stat-num" data-target="45000" data-suffix="+" aria-label="45,000+ subscribers">45K+</div>
+                <div class="hero-stat-label">Subscribers</div>
+              </div>
+              <div>
+                <div class="hero-stat-num" data-target="200" data-suffix="+" aria-label="200+ reports">200+</div>
+                <div class="hero-stat-label">Reports Published</div>
+              </div>
+              <div>
+                <div class="hero-stat-num" data-target="38" aria-label="38 countries">38</div>
+                <div class="hero-stat-label">Countries Served</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-image-wrap reveal reveal-delay-2">
+            <img class="hero-image-main" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Business strategy team in a modern office" loading="eager">
+            <div class="hero-image-badge">
+              <div class="hero-image-badge-label">Q2 2026 Report</div>
+              <div class="hero-image-badge-value">New →</div>
+            </div>
+            <div class="hero-image-tag">🔥 Trending</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CATEGORY STRIP ===== -->
+    <section style="border-bottom:1px solid var(--c-border); padding:1.25rem 0; background:var(--c-bg);" aria-label="Topic categories">
+      <div class="container">
+        <div class="cat-strip" role="list">
+          <a href="blog.html"            class="cat-pill active" role="listitem">All Topics</a>
+          <a href="blog.html?cat=Strategy"   class="cat-pill" role="listitem">Strategy</a>
+          <a href="blog.html?cat=Finance"    class="cat-pill" role="listitem">Finance</a>
+          <a href="blog.html?cat=Technology" class="cat-pill" role="listitem">Technology</a>
+          <a href="blog.html?cat=Leadership" class="cat-pill" role="listitem">Leadership</a>
+          <a href="blog.html?cat=Operations" class="cat-pill" role="listitem">Operations</a>
+          <a href="blog.html?cat=Industry"   class="cat-pill" role="listitem">Industry</a>
+          <a href="blog.html?cat=ESG"        class="cat-pill" role="listitem">ESG</a>
+          <a href="blog.html?cat=Markets"    class="cat-pill" role="listitem">Markets</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED ARTICLES ===== -->
+    <section class="section" aria-labelledby="featured-heading">
+      <div class="container">
+        <div class="section-header section-header-row">
+          <div>
+            <div class="section-eyebrow">Featured</div>
+            <h2 class="section-title" id="featured-heading">This Week's Top Insights</h2>
+          </div>
+          <a href="blog.html" class="btn btn-ghost">View All →</a>
+        </div>
+        <div class="featured-grid reveal">
+          <!-- Main Feature -->
+          <a href="blog-post.html?id=future-of-enterprise-ai-2025" class="featured-main-card" aria-label="Read: The Future of Enterprise AI">
+            <img class="featured-main-img" src="https://images.pexels.com/photos/8386437/pexels-photo-8386437.jpeg?_gl=1*21awyt*_ga*MTk5MTg0ODgzOS4xNzc4MDYzNzUw*_ga_8JE65Q40S6*czE3ODEzNjI3ODEkbzkkZzEkdDE3ODEzNjI4NDIkajU5JGwwJGgw" alt="Enterprise AI strategy" loading="lazy">
+            <div class="featured-main-overlay">
+              <span class="badge badge-accent" style="margin-bottom:1rem;">Technology</span>
+              <h3 style="font-family:var(--ff-display);font-size:clamp(var(--fs-lg),2.5vw,var(--fs-2xl));font-weight:var(--fw-extrabold);color:#fff;letter-spacing:var(--ls-tight);line-height:var(--lh-snug);margin-bottom:0.625rem;">The Future of Enterprise AI: Strategy, Risk, and the Road Ahead</h3>
+              <div style="display:flex;align-items:center;gap:1rem;font-size:var(--fs-xs);color:rgba(226,232,240,0.6);">
+                <span>June 8, 2026</span>
+                <span>·</span>
+                <span>8 min read</span>
+              </div>
+            </div>
+          </a>
+          <!-- Side Cards -->
+          <div class="featured-side">
+            <a href="blog-post.html?id=global-supply-chain-resilience" class="featured-side-card">
+              <img class="featured-side-img" src="https://images.pexels.com/photos/33800397/pexels-photo-33800397.jpeg?_gl=1*1xw99ey*_ga*MTk5MTg0ODgzOS4xNzc4MDYzNzUw*_ga_8JE65Q40S6*czE3ODEzNjU4MjgkbzEwJGcxJHQxNzgxMzY2MTU4JGoxMCRsMCRoMA" alt="Supply chain" loading="lazy">
+              <div>
+                <div class="featured-side-cat">Operations</div>
+                <div class="featured-side-title">Rebuilding for Resilience: The New Supply Chain Playbook</div>
+                <div class="featured-side-date">June 5, 2026 · 6 min</div>
+              </div>
+            </a>
+            <a href="blog-post.html?id=executive-leadership-transformation" class="featured-side-card">
+              <img class="featured-side-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=200&q=80" alt="Leadership transformation" loading="lazy">
+              <div>
+                <div class="featured-side-cat">Leadership</div>
+                <div class="featured-side-title">Leading Through Transformation: What Boards Must Do Differently</div>
+                <div class="featured-side-date">May 30, 2026 · 7 min</div>
+              </div>
+            </a>
+            <a href="blog-post.html?id=sustainable-finance-esg-2026" class="featured-side-card">
+              <img class="featured-side-img" src="https://images.pexels.com/photos/5550904/pexels-photo-5550904.jpeg?_gl=1*7seoh7*_ga*MTk5MTg0ODgzOS4xNzc4MDYzNzUw*_ga_8JE65Q40S6*czE3ODEzNjU4MjgkbzEwJGcxJHQxNzgxMzY2MjQ2JGo0OCRsMCRoMA" alt="ESG Finance" loading="lazy">
+              <div>
+                <div class="featured-side-cat">Finance</div>
+                <div class="featured-side-title">ESG in 2026: From Compliance to Competitive Advantage</div>
+                <div class="featured-side-date">May 24, 2026 · 9 min</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATISTICS SECTION ===== -->
+    <section class="section-sm" style="background:var(--c-surface);" aria-labelledby="stats-heading">
+      <div class="container">
+        <div class="stats-grid" role="list">
+          <div class="stat-item reveal" role="listitem">
+            <div class="stat-value" data-target="45" data-suffix="K+">45K+</div>
+            <div class="stat-label">Global Subscribers</div>
+            <div class="stat-desc">Executives & leaders</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-1" role="listitem">
+            <div class="stat-value" data-target="200" data-suffix="+">200+</div>
+            <div class="stat-label">Research Reports</div>
+            <div class="stat-desc">Published annually</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-2" role="listitem">
+            <div class="stat-value" data-target="38">38</div>
+            <div class="stat-label">Countries Served</div>
+            <div class="stat-desc">Global coverage</div>
+          </div>
+          <div class="stat-item reveal reveal-delay-3" role="listitem">
+            <div class="stat-value" data-target="96" data-suffix="%">96%</div>
+            <div class="stat-label">Client Satisfaction</div>
+            <div class="stat-desc">Net Promoter Score</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LATEST INSIGHTS GRID ===== -->
+    <section class="section" aria-labelledby="latest-heading">
+      <div class="container">
+        <div class="section-header section-header-row">
+          <div>
+            <div class="section-eyebrow">Latest</div>
+            <h2 class="section-title" id="latest-heading">Recent Insights</h2>
+          </div>
+          <a href="blog.html" class="btn btn-ghost">All Insights →</a>
+        </div>
+        <div class="grid-3" id="latestInsightsGrid">
+          <!-- Dynamically populated by blog.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== INDUSTRY HIGHLIGHTS ===== -->
+    <section class="section" style="background:var(--c-surface);" aria-labelledby="industry-heading">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Industries</div>
+          <h2 class="section-title" id="industry-heading">Coverage Across Every Sector</h2>
+          <p class="section-lead">Deep expertise in the sectors that drive the global economy, from technology and finance to healthcare and energy.</p>
+        </div>
+        <div class="grid-3 reveal">
+          <a href="industry.html" class="industry-card">
+            <img class="industry-card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Technology industry" loading="lazy">
+            <div class="industry-card-overlay">
+              <div class="industry-card-title">Technology</div>
+              <div class="industry-card-count">24 reports this quarter</div>
+            </div>
+            <div class="industry-card-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+          </a>
+          <a href="industry.html" class="industry-card">
+            <img class="industry-card-img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80" alt="Financial services" loading="lazy">
+            <div class="industry-card-overlay">
+              <div class="industry-card-title">Financial Services</div>
+              <div class="industry-card-count">18 reports this quarter</div>
+            </div>
+            <div class="industry-card-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+          </a>
+          <a href="industry.html" class="industry-card">
+            <img class="industry-card-img" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80" alt="Healthcare industry" loading="lazy">
+            <div class="industry-card-overlay">
+              <div class="industry-card-title">Healthcare</div>
+              <div class="industry-card-count">15 reports this quarter</div>
+            </div>
+            <div class="industry-card-arrow"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
+          </a>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="industry.html" class="btn btn-secondary">Explore All Industries</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESEARCH THEMES ===== -->
+    <section class="section" aria-labelledby="themes-heading">
+      <div class="container">
+        <div class="section-header text-center" style="margin-bottom:3rem;">
+          <div class="section-eyebrow" style="justify-content:center;">What We Cover</div>
+          <h2 class="section-title" id="themes-heading">Research Themes That Matter</h2>
+          <p class="section-lead" style="margin:0 auto;">A curated view of the ideas, risks, and opportunities shaping enterprise strategy in the year ahead.</p>
+        </div>
+        <div class="grid-3 reveal">
+          <div class="research-card">
+            <div class="research-icon" aria-hidden="true">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"/></svg>
+            </div>
+            <h3 class="research-title">Strategy & Markets</h3>
+            <p class="research-desc">Analysis of corporate strategy, capital markets, and competitive shifts that shape decision-making at the highest levels.</p>
+            <a href="blog.html?cat=Strategy" class="research-link">Explore insights <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="research-card">
+            <div class="research-icon" aria-hidden="true">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3 class="research-title">Digital Economy</h3>
+            <p class="research-desc">Coverage of digital transformation, AI adoption, and technology-driven disruption across industries.</p>
+            <a href="blog.html?cat=Technology" class="research-link">Explore insights <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+          <div class="research-card">
+            <div class="research-icon" aria-hidden="true">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="research-title">Risk & Regulation</h3>
+            <p class="research-desc">Research on geopolitical risk, regulatory change, and resilience strategies for companies operating in volatile markets.</p>
+            <a href="blog.html?cat=Markets" class="research-link">Explore insights <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+          <a href="blog.html" class="btn btn-secondary">Browse All Insights</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="section" aria-label="Newsletter subscription">
+      <div class="container">
+        <div class="newsletter-strip reveal">
+          <div>
+            <div class="newsletter-strip-title">Intelligence, Delivered Weekly</div>
+            <p class="newsletter-strip-desc">Every Friday, our editorial team curates the most important business insights, strategic analysis, and market intelligence — concise, actionable, and built for senior leaders.</p>
+          </div>
+          <div>
+            <form class="newsletter-strip-form" onsubmit="return false;">
+              <div class="newsletter-strip-input-row">
+                <input type="email" class="newsletter-strip-input" placeholder="Enter your work email" aria-label="Email for newsletter" required>
+                <button type="button" class="btn btn-white" data-cta data-cta-title="Subscribe to NexPress" data-cta-desc="Get weekly premium insights from NexPress delivered to your inbox.">Subscribe Free</button>
+              </div>
+              <p class="newsletter-strip-note">Join 45,000+ subscribers. No spam. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRENDING REPORTS ===== -->
+    <section class="section" style="background:var(--c-surface);" aria-labelledby="trending-heading">
+      <div class="container">
+        <div class="section-header section-header-row">
+          <div>
+            <div class="section-eyebrow">Trending</div>
+            <h2 class="section-title" id="trending-heading">Most-Read Reports</h2>
+          </div>
+          <a href="blog.html" class="btn btn-ghost">All Reports →</a>
+        </div>
+        <div class="grid-2 reveal">
+          <a href="blog-post.html?id=future-of-enterprise-ai-2025" class="report-card" style="text-decoration:none;">
+            <div class="report-num">01</div>
+            <div class="report-content">
+              <div class="report-cat">Technology</div>
+              <div class="report-title">The Future of Enterprise AI: Strategy, Risk, and the Road Ahead</div>
+              <div class="report-meta">June 8, 2026 <span>·</span> 8 min read <span>·</span> <strong style="color:var(--c-accent)">4.2K reads</strong></div>
+            </div>
+          </a>
+          <a href="blog-post.html?id=sustainable-finance-esg-2026" class="report-card" style="text-decoration:none;">
+            <div class="report-num">02</div>
+            <div class="report-content">
+              <div class="report-cat">Finance</div>
+              <div class="report-title">ESG in 2026: From Compliance Exercise to Competitive Advantage</div>
+              <div class="report-meta">May 24, 2026 <span>·</span> 9 min read <span>·</span> <strong style="color:var(--c-accent)">3.8K reads</strong></div>
+            </div>
+          </a>
+          <a href="blog-post.html?id=global-supply-chain-resilience" class="report-card" style="text-decoration:none;">
+            <div class="report-num">03</div>
+            <div class="report-content">
+              <div class="report-cat">Operations</div>
+              <div class="report-title">Rebuilding for Resilience: The New Supply Chain Playbook</div>
+              <div class="report-meta">June 5, 2026 <span>·</span> 6 min read <span>·</span> <strong style="color:var(--c-accent)">3.1K reads</strong></div>
+            </div>
+          </a>
+          <a href="blog-post.html?id=executive-leadership-transformation" class="report-card" style="text-decoration:none;">
+            <div class="report-num">04</div>
+            <div class="report-content">
+              <div class="report-cat">Leadership</div>
+              <div class="report-title">Leading Through Transformation: What Boards and CEOs Must Do Differently</div>
+              <div class="report-meta">May 30, 2026 <span>·</span> 7 min read <span>·</span> <strong style="color:var(--c-accent)">2.9K reads</strong></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header text-center" style="margin-bottom:3rem;">
+          <div class="section-eyebrow" style="justify-content:center;">Testimonials</div>
+          <h2 class="section-title" id="testimonials-heading">Trusted by Enterprise Leaders</h2>
+        </div>
+        <div class="grid-3 reveal">
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">NexPress has fundamentally changed how our leadership team approaches strategic planning. The depth of analysis is unmatched — it's like having a team of McKinsey partners on call.</p>
+            <div class="testimonial-author">
+              <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="Michael Chen">
+              <div>
+                <div class="testimonial-name">Michael Chen</div>
+                <div class="testimonial-role">Chief Strategy Officer, Apex Global</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">The weekly intelligence briefing alone is worth the subscription. Concise, actionable, and always ahead of what we see in the mainstream business press.</p>
+            <div class="testimonial-author">
+              <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="Sarah Mitchell">
+              <div>
+                <div class="testimonial-name">Sarah Mitchell</div>
+                <div class="testimonial-role">CEO, Meridian Capital Partners</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-quote" aria-hidden="true">"</div>
+            <p class="testimonial-text">We use NexPress research to brief our board quarterly. The rigor and independence of the analysis gives our directors genuine confidence in our strategic assessments.</p>
+            <div class="testimonial-author">
+              <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&q=80" alt="David Patel">
+              <div>
+                <div class="testimonial-name">David Patel</div>
+                <div class="testimonial-role">CFO, Northvale Pharmaceuticals</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA DARK ===== -->
+    <section class="section" aria-label="Subscribe CTA">
+      <div class="container">
+        <div class="cta-dark reveal">
+          <div>
+            <div class="cta-dark-eyebrow">Premium Access</div>
+            <h2 class="cta-dark-title">Intelligence That Moves at the Speed of Business</h2>
+            <p class="cta-dark-desc">Get unlimited access to NexPress's full research library, weekly briefings, and analyst perspective for senior leaders.</p>
+            <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+              <button class="btn btn-white btn-lg" data-cta data-cta-title="Start Your Access" data-cta-desc="Get unlimited access to our full research library and analyst briefings.">Get Started</button>
+              <a href="blog.html" class="btn btn-ghost btn-lg" style="color:rgba(226,232,240,0.7);border-color:rgba(226,232,240,0.2);">Browse Insights</a>
+            </div>
+          </div>
+          <div class="cta-dark-features">
+            <div class="cta-dark-feature">
+              <div class="cta-dark-feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div class="cta-dark-feature-text">200+ research reports per year</div>
+            </div>
+            <div class="cta-dark-feature">
+              <div class="cta-dark-feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg></div>
+              <div class="cta-dark-feature-text">Weekly executive briefings</div>
+            </div>
+            <div class="cta-dark-feature">
+              <div class="cta-dark-feature-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+              <div class="cta-dark-feature-text">Priority analyst access</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section" style="background:var(--c-surface);" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header" style="max-width:700px;margin-left:auto;margin-right:auto;text-align:center;">
+          <div class="section-eyebrow" style="justify-content:center;">FAQ</div>
+          <h2 class="section-title" id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+        <div style="max-width:780px;margin:0 auto;" role="list">
+          <div class="faq-item reveal" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              What makes NexPress different from other business publications?
+              <span class="faq-icon" aria-hidden="true">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">NexPress combines the editorial depth of a premium research firm with the speed and accessibility of a digital publication. Unlike generalist business media, every piece of content is built for senior leaders making real decisions — not for traffic. Our analysis is independent, rigorous, and always anchored in practical implication.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-1" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Who is the typical NexPress subscriber?
+              <span class="faq-icon" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Our subscribers include C-suite executives, board members, senior partners at consulting and law firms, investment professionals, and strategy leaders at enterprise organizations. The common thread is a need for rigorous, independent analysis on the strategic issues that matter most at senior levels.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-2" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              How do I access the full research library?
+              <span class="faq-icon" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Full access to our research library, proprietary data, and premium reports is available through a NexPress Intelligence subscription. Contact us through the form on this page or visit our Contact page to discuss individual, team, and enterprise licensing options.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-3" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Does NexPress offer custom research and intelligence?
+              <span class="faq-icon" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Yes. Beyond our published research, we provide custom strategic analysis, bespoke market intelligence, board briefings, and executive workshops. All research is led by our senior analyst team with relevant domain expertise. Contact us to discuss your specific needs.</div>
+            </div>
+          </div>
+          <div class="faq-item reveal reveal-delay-4" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              Can I share NexPress content with my team?
+              <span class="faq-icon" aria-hidden="true"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Team and enterprise subscriptions include sharing and distribution rights for internal use within your organization. Individual subscriptions are for personal use only. Please contact us to discuss team licensing if you want to share content broadly within your company.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== SEARCH OVERLAY ===== -->
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-box">
+      <div class="search-inner">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="searchInput" placeholder="Search insights, reports, topics…" autocomplete="off" aria-label="Search NexPress">
+      </div>
+      <button class="search-close" id="searchClose">Press Esc to close</button>
+    </div>
+  </div>
+
+  <!-- ===== CTA MODAL ===== -->
+  <div class="modal-overlay" id="ctaModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <div id="ctaFormView">
+        <div class="modal-header">
+          <div class="modal-eyebrow">NexPress Intelligence</div>
+          <h2 class="modal-title" id="modalTitle">Get Exclusive Insights</h2>
+          <p class="modal-desc" id="modalDesc">Join 45,000+ executives who rely on NexPress for premium business intelligence.</p>
+        </div>
+        <form class="modal-form" id="ctaForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="ctaName">Full Name *</label>
+              <input class="form-input" id="ctaName" name="name" type="text" placeholder="Jane Smith" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ctaEmail">Work Email *</label>
+              <input class="form-input" id="ctaEmail" name="email" type="email" placeholder="jane@company.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ctaCompany">Company</label>
+            <input class="form-input" id="ctaCompany" name="company" type="text" placeholder="Company name" autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ctaMessage">What are you looking for?</label>
+            <textarea class="form-input" id="ctaMessage" name="message" placeholder="Tell us about your needs…" rows="3"></textarea>
+          </div>
+          <div class="modal-actions">
+            <label class="checkbox-wrap">
+              <input type="checkbox" id="ctaConsent" name="consent" required>
+              <span class="checkbox-label">I agree to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms &amp; Conditions</a></span>
+            </label>
+            <button type="submit" class="btn btn-primary btn-lg" id="ctaSubmit" disabled style="width:100%;justify-content:center;">
+              Send Request
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p style="font-size:var(--fs-xs);color:var(--c-ink-4);text-align:center;">No spam. Unsubscribe anytime.</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-success" id="ctaSuccess">
+        <div class="modal-success-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3 style="font-family:var(--ff-display);font-size:var(--fs-xl);font-weight:var(--fw-extrabold);color:var(--c-ink);margin-bottom:0.5rem;">You're In!</h3>
+        <p style="font-size:var(--fs-sm);color:var(--c-ink-3);line-height:1.6;">Thank you for reaching out. A team member will contact you within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="siteFooter"></footer>
+
+  <script src="js/page-shell.js"></script>
+  <script src="data/blogs-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>PageShell.init('');
+    // Populate Latest Insights from blogs data
+    (function() {
+      const grid = document.getElementById('latestInsightsGrid');
+      if (!grid || typeof BLOGS_DATA === 'undefined') return;
+      const recent = BLOGS_DATA.slice(0, 3);
+      grid.innerHTML = recent.map(blog => `
+        <article class="blog-card reveal">
+          <a href="blog-post.html?id=${blog.id}" class="blog-card-image" aria-label="Read: ${blog.title}">
+            <img src="${blog.image}" alt="${blog.title}" loading="lazy">
+          </a>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-cat">${blog.category}</span>
+              <span class="blog-card-date">${blog.date}</span>
+            </div>
+            <h3 class="blog-card-title"><a href="blog-post.html?id=${blog.id}">${blog.title}</a></h3>
+            <p class="blog-card-excerpt">${blog.excerpt}</p>
+            <div class="blog-card-footer">
+              <a href="blog-post.html?id=${blog.id}" class="blog-card-read">
+                Read More
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <span class="blog-card-readtime">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                ${blog.readTime}
+              </span>
+            </div>
+          </div>
+        </article>
+      `).join('');
+      // Re-trigger reveals on newly added elements
+      const reveals = grid.querySelectorAll('.reveal');
+      const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }}), {threshold:0.1});
+      reveals.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

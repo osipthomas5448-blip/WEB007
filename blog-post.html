@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Article — NexPress</title>
+  <meta name="description" id="pageDesc" content="NexPress business intelligence article.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .post-hero {
+      background: var(--c-ink);
+      padding: clamp(3rem, 6vw, 6rem) 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-hero::before {
+      content:''; position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(13,17,23,0.7) 0%, var(--c-ink) 100%);
+      z-index:1;
+    }
+    .post-hero-bg {
+      position:absolute; inset:0; z-index:0;
+      object-fit:cover; width:100%; height:100%; opacity:0.35;
+    }
+    .post-hero-inner { position:relative; z-index:2; max-width:860px; }
+    .post-hero-cat {
+      display:inline-flex; align-items:center;
+      padding:0.35rem 0.875rem; background:rgba(26,63,191,0.25);
+      border:1px solid rgba(26,63,191,0.4); border-radius:var(--r-pill);
+      font-family:var(--ff-display); font-weight:var(--fw-semibold);
+      font-size:var(--fs-xs); letter-spacing:var(--ls-wide); text-transform:uppercase;
+      color:#7B93FF; margin-bottom:1.25rem;
+    }
+    .post-hero-title {
+      font-family:var(--ff-display); font-weight:var(--fw-extrabold);
+      font-size:clamp(var(--fs-2xl), 4.5vw, var(--fs-4xl));
+      letter-spacing:var(--ls-tight); line-height:var(--lh-snug);
+      color:#fff; margin-bottom:1.5rem;
+    }
+    .post-hero-meta {
+      display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;
+      font-size:var(--fs-sm); color:rgba(226,232,240,0.65); padding-bottom:2rem;
+      font-family:var(--ff-display);
+    }
+    .post-hero-divider { width:1px; height:14px; background:rgba(226,232,240,0.25); }
+    .post-featured-img {
+      display:block; width:100%; max-width:860px;
+      aspect-ratio:16/7; object-fit:cover;
+      border-radius:var(--r-xl) var(--r-xl) 0 0;
+      position:relative; z-index:2;
+    }
+    .post-body-wrap {
+      display:grid; grid-template-columns:1fr 300px; gap:3rem; align-items:start;
+      padding:3rem 0 5rem;
+    }
+    @media(max-width:900px){ .post-body-wrap{grid-template-columns:1fr;} .post-sidebar{display:none;} }
+    .post-sidebar { position:sticky; top:100px; }
+    .sidebar-card {
+      background:var(--c-surface); border:1px solid var(--c-border);
+      border-radius:var(--r-xl); padding:1.5rem; margin-bottom:1.25rem;
+    }
+    .sidebar-card-title { font-family:var(--ff-display); font-weight:var(--fw-bold); font-size:var(--fs-sm); color:var(--c-ink); margin-bottom:1rem; }
+    .sidebar-tags { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .sidebar-tag { padding:0.3rem 0.75rem; background:var(--c-bg); border:1px solid var(--c-border); border-radius:var(--r-pill); font-size:var(--fs-xs); color:var(--c-ink-3); font-family:var(--ff-display); font-weight:var(--fw-medium); }
+    .related-item { display:flex; gap:0.875rem; padding:0.875rem 0; border-bottom:1px solid var(--c-border); text-decoration:none; }
+    .related-item:last-child{border-bottom:none;}
+    .related-img { width:60px; height:48px; object-fit:cover; border-radius:var(--r-sm); flex-shrink:0; }
+    .related-title { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-xs); color:var(--c-ink); line-height:1.4; }
+    .related-cat { font-size:10px; color:var(--c-accent); font-family:var(--ff-display); font-weight:var(--fw-semibold); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.25rem; }
+    .share-btns { display:flex; gap:0.5rem; }
+    .share-btn {
+      flex:1; padding:0.6rem; border-radius:var(--r-md); border:1.5px solid var(--c-border);
+      background:var(--c-bg); font-family:var(--ff-display); font-weight:var(--fw-semibold);
+      font-size:var(--fs-xs); color:var(--c-ink-3); cursor:pointer; text-align:center;
+      transition:all var(--trans-fast);
+    }
+    .share-btn:hover{background:var(--c-accent);border-color:var(--c-accent);color:#fff;}
+    .post-footer-cta {
+      background:linear-gradient(135deg,var(--c-accent),var(--c-accent-mid));
+      border-radius:var(--r-2xl); padding:3rem; text-align:center; margin:3rem 0;
+    }
+    .post-footer-cta h3 { font-family:var(--ff-display); font-size:var(--fs-2xl); font-weight:var(--fw-extrabold); color:#fff; margin-bottom:0.75rem; }
+    .post-footer-cta p { color:rgba(255,255,255,0.75); margin-bottom:1.5rem; }
+    #notFound { text-align:center; padding:8rem 2rem; }
+  </style>
+</head>
+<body>
+
+<header class="navbar" id="siteNavbar" role="banner"></header>
+<div id="siteModals"></div>
+
+<main id="postMain"></main>
+
+<div id="notFound" style="display:none;">
+  <div class="container">
+    <div style="font-size:5rem;margin-bottom:1rem;">📄</div>
+    <h1 style="font-family:var(--ff-display);font-size:var(--fs-2xl);margin-bottom:0.75rem;">Article Not Found</h1>
+    <p style="color:var(--c-ink-3);margin-bottom:1.5rem;">The article you're looking for doesn't exist or may have been moved.</p>
+    <a href="blog.html" class="btn btn-primary">Browse All Articles</a>
+  </div>
+</div>
+
+<footer class="footer" id="siteFooter"></footer>
+
+<script src="data/blogs-data.js"></script>
+<script src="js/page-shell.js"></script>
+<script src="js/main.js"></script>
+<script>PageShell.init('Blog');
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const main = document.getElementById('postMain');
+  const notFound = document.getElementById('notFound');
+
+  if (!id) { notFound.style.display = ''; return; }
+
+  const blog = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA.find(b => b.id === id) : null;
+  if (!blog) { notFound.style.display = ''; return; }
+
+  document.title = blog.title + ' — NexPress';
+  document.getElementById('pageTitle').textContent = blog.title + ' — NexPress';
+  document.getElementById('pageDesc').content = blog.excerpt;
+
+  const related = (typeof BLOGS_DATA !== 'undefined') ? BLOGS_DATA.filter(b => b.id !== id).slice(0, 3) : [];
+
+  main.innerHTML = `
+    <section class="post-hero">
+      <img class="post-hero-bg" src="${blog.image}" alt="" aria-hidden="true">
+      <div class="container">
+        <div class="post-hero-inner">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <a href="blog.html">Blog</a>
+            <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            <span>${blog.category}</span>
+          </nav>
+          <div class="post-hero-cat">${blog.category}</div>
+          <h1 class="post-hero-title">${blog.title}</h1>
+          <div class="post-hero-meta">
+            <span>${blog.author}</span>
+            <span class="post-hero-divider"></span>
+            <span>${blog.date}</span>
+            <span class="post-hero-divider"></span>
+            <span>${blog.readTime}</span>
+          </div>
+        </div>
+        <img class="post-featured-img" src="${blog.image}" alt="${blog.title}" loading="eager">
+      </div>
+    </section>
+
+    <section style="background:var(--c-bg);">
+      <div class="container">
+        <div class="post-body-wrap">
+          <article>
+            <div class="post-content">${blog.content}</div>
+            
+            ${related.length ? `
+            <section aria-labelledby="related-heading">
+              <h2 id="related-heading" style="font-family:var(--ff-display);font-size:var(--fs-xl);font-weight:var(--fw-extrabold);color:var(--c-ink);margin-bottom:1.5rem;">More Insights</h2>
+              <div class="grid-3">
+                ${related.map(r => `
+                <a href="blog-post.html?id=${r.id}" class="blog-card" style="text-decoration:none;">
+                  <div class="blog-card-image"><img src="${r.image}" alt="${r.title}" loading="lazy"></div>
+                  <div class="blog-card-body">
+                    <div class="blog-card-meta"><span class="blog-card-cat">${r.category}</span><span class="blog-card-date">${r.date}</span></div>
+                    <h3 class="blog-card-title">${r.title}</h3>
+                    <div class="blog-card-footer"><span class="blog-card-read">Read More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                  </div>
+                </a>`).join('')}
+              </div>
+            </section>` : ''}
+          </article>
+
+          <aside class="post-sidebar" aria-label="Article sidebar">
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Share This Article</div>
+              <div class="share-btns">
+                <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href))">𝕏 Twitter</button>
+                <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href))">in LinkedIn</button>
+              </div>
+            </div>
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Tags</div>
+              <div class="sidebar-tags">${(blog.tags || []).map(t => `<span class="sidebar-tag">${t}</span>`).join('')}</div>
+            </div>
+            ${related.length ? `
+            <div class="sidebar-card">
+              <div class="sidebar-card-title">Related Articles</div>
+              ${related.map(r => `
+              <a href="blog-post.html?id=${r.id}" class="related-item">
+                <img class="related-img" src="${r.image}" alt="${r.title}" loading="lazy">
+                <div><div class="related-cat">${r.category}</div><div class="related-title">${r.title}</div></div>
+              </a>`).join('')}
+            </div>` : ''}
+            <div class="sidebar-card" style="background:var(--c-accent);border-color:var(--c-accent);">
+              <div style="font-family:var(--ff-display);font-weight:var(--fw-bold);color:#fff;margin-bottom:0.5rem;">Get Weekly Insights</div>
+              <p style="font-size:var(--fs-xs);color:rgba(255,255,255,0.8);margin-bottom:1rem;line-height:1.6;">Join 45,000+ leaders who read NexPress every week.</p>
+              <button class="btn btn-white btn-sm" data-cta style="width:100%;justify-content:center;">Subscribe Free</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  `;
+})();
+</script>
+
+</body>
+</html>

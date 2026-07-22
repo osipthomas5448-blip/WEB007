@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights — NexPress Business Intelligence</title>
+  <meta name="description" content="Browse all NexPress insights, research reports, and expert analysis across strategy, finance, technology, leadership, and more.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .insights-hero { background:linear-gradient(135deg,#0D1117,#1a2a5e); padding:clamp(3.5rem,7vw,7rem) 0; }
+    .insights-hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    @media(max-width:768px){ .insights-hero-inner{grid-template-columns:1fr;} }
+    .ins-stat { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--r-xl); padding:1.5rem; }
+    .ins-stat-val { font-family:var(--ff-display); font-size:var(--fs-3xl); font-weight:var(--fw-extrabold); color:#fff; letter-spacing:var(--ls-tight); }
+    .ins-stat-label { font-size:var(--fs-xs); color:rgba(226,232,240,.55); margin-top:0.25rem; font-family:var(--ff-display); }
+    .cat-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:3rem; }
+    @media(max-width:720px){ .cat-cards{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:480px){ .cat-cards{grid-template-columns:1fr;} }
+    .cat-card { padding:1.25rem 1.5rem; border-radius:var(--r-lg); border:1.5px solid var(--c-border); background:var(--c-bg); cursor:pointer; transition:all var(--trans-fast); display:flex; align-items:center; gap:0.875rem; }
+    .cat-card:hover,.cat-card.active { border-color:var(--c-accent); background:var(--c-accent-soft); }
+    .cat-card.active .cat-card-name { color:var(--c-accent); }
+    .cat-card-icon { font-size:1.5rem; }
+    .cat-card-name { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-sm); color:var(--c-ink); }
+    .cat-card-count { font-size:var(--fs-xs); color:var(--c-ink-4); margin-top:0.1rem; }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="siteNavbar" role="banner"></header>
+  <div id="siteModals"></div>
+
+  <main>
+    <section class="insights-hero" aria-label="Insights hero">
+      <div class="container">
+        <div class="insights-hero-inner">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .875rem;background:rgba(26,63,191,.2);border:1px solid rgba(26,63,191,.4);border-radius:var(--r-pill);font-family:var(--ff-display);font-weight:var(--fw-semibold);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:#7B93FF;margin-bottom:1.5rem;">Intelligence Hub</div>
+            <h1 style="font-family:var(--ff-display);font-size:clamp(var(--fs-3xl),5vw,var(--fs-5xl));font-weight:var(--fw-extrabold);letter-spacing:var(--ls-tight);line-height:var(--lh-tight);color:#fff;margin-bottom:1.25rem;">The Insights That<br>Drive Enterprise Decisions</h1>
+            <p style="font-size:var(--fs-md);color:rgba(226,232,240,.7);line-height:var(--lh-relaxed);">200+ research reports. Expert commentary. Strategic briefings. All in one place, built for the decisions that matter.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="ins-stat"><div class="ins-stat-val">200+</div><div class="ins-stat-label">Reports per year</div></div>
+            <div class="ins-stat"><div class="ins-stat-val">45K+</div><div class="ins-stat-label">Subscribers</div></div>
+            <div class="ins-stat"><div class="ins-stat-val">38</div><div class="ins-stat-label">Countries covered</div></div>
+            <div class="ins-stat"><div class="ins-stat-val">6</div><div class="ins-stat-label">Coverage areas</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Category Cards -->
+        <div class="cat-cards" id="catCards">
+          <div class="cat-card active" data-filter="all"><div class="cat-card-icon">📊</div><div><div class="cat-card-name">All Topics</div><div class="cat-card-count" id="countAll">Loading…</div></div></div>
+          <div class="cat-card" data-filter="Strategy"><div class="cat-card-icon">🎯</div><div><div class="cat-card-name">Strategy</div><div class="cat-card-count" id="countStrategy">–</div></div></div>
+          <div class="cat-card" data-filter="Finance"><div class="cat-card-icon">💹</div><div><div class="cat-card-name">Finance</div><div class="cat-card-count" id="countFinance">–</div></div></div>
+          <div class="cat-card" data-filter="Technology"><div class="cat-card-icon">⚡</div><div><div class="cat-card-name">Technology</div><div class="cat-card-count" id="countTechnology">–</div></div></div>
+          <div class="cat-card" data-filter="Leadership"><div class="cat-card-icon">🏛️</div><div><div class="cat-card-name">Leadership</div><div class="cat-card-count" id="countLeadership">–</div></div></div>
+          <div class="cat-card" data-filter="Operations"><div class="cat-card-icon">⚙️</div><div><div class="cat-card-name">Operations</div><div class="cat-card-count" id="countOperations">–</div></div></div>
+        </div>
+
+        <!-- Featured -->
+        <div id="featuredWrap" style="margin-bottom:3rem;"></div>
+
+        <div class="section-header section-header-row">
+          <div><div class="section-eyebrow">All Insights</div><h2 class="section-title" style="font-size:var(--fs-2xl);" id="resultsLabel">All Articles</h2></div>
+        </div>
+        <div class="grid-3" id="insightsGrid"></div>
+        <div id="insightsEmpty" style="display:none;text-align:center;padding:4rem 0;"><p style="font-size:var(--fs-lg);color:var(--c-ink-4);font-family:var(--ff-display);">No articles in this category yet.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="siteFooter"></footer>
+  <script src="data/blogs-data.js"></script>
+  <script src="js/page-shell.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    PageShell.init('Insights');
+
+    const categoryConfig = [
+      {label: 'All Topics', filter: 'all', slug: 'all'},
+      {label: 'Strategy', filter: 'Strategy', slug: 'strategy'},
+      {label: 'Finance', filter: 'Finance', slug: 'finance'},
+      {label: 'Technology', filter: 'Technology', slug: 'technology'},
+      {label: 'Leadership', filter: 'Leadership', slug: 'leadership'},
+      {label: 'Operations', filter: 'Operations', slug: 'operations'},
+      {label: 'Industry', filter: 'Industry', slug: 'industry'}
+    ];
+
+    const cats = ['Strategy','Finance','Technology','Leadership','Operations','Industry'];
+    // populate counts
+    document.getElementById('countAll').textContent = BLOGS_DATA.length + ' articles';
+    cats.forEach(c => {
+      const el = document.getElementById('count'+c);
+      if(el) { const n = BLOGS_DATA.filter(b=>b.category===c).length; el.textContent = n + ' article' + (n!==1?'s':''); }
+    });
+
+    function normalizeCategoryQuery(raw) {
+      if (!raw) return {type:'all'};
+      const slug = raw.trim().toLowerCase();
+      if (slug === 'all') return {type:'all'};
+      const match = categoryConfig.find(item => item.slug === slug || item.filter.toLowerCase() === slug);
+      if (match) return {type:'category', value: match.filter, slug: match.slug, label: match.label};
+      return {type:'all'};
+    }
+
+    function setActiveCategoryCard(filterObj) {
+      const cards = document.querySelectorAll('.cat-card');
+      cards.forEach(card => {
+        card.classList.toggle('active', filterObj.type === 'category' && card.dataset.filter === filterObj.value);
+      });
+    }
+
+    function renderFeatured(filterObj) {
+      const wrap = document.getElementById('featuredWrap');
+      const data = filterObj.type === 'all' ? BLOGS_DATA : BLOGS_DATA.filter(b => b.category === filterObj.value);
+      const featured = data.find(b => b.featured);
+      if(!featured || !wrap) {
+        if (wrap) wrap.innerHTML = '';
+        return;
+      }
+      wrap.innerHTML = `
+        <a href="blog-post.html?id=${featured.id}" class="blog-featured" style="text-decoration:none;">
+          <div class="blog-featured-image"><img src="${featured.image}" alt="${featured.title}" loading="lazy"></div>
+          <div class="blog-featured-body">
+            <span class="badge badge-accent" style="margin-bottom:1rem;">${featured.category}</span>
+            <h2 style="font-family:var(--ff-display);font-size:var(--fs-2xl);font-weight:var(--fw-extrabold);color:var(--c-ink);letter-spacing:var(--ls-tight);line-height:var(--lh-snug);margin-bottom:0.75rem;">${featured.title}</h2>
+            <p style="font-size:var(--fs-sm);color:var(--c-ink-3);line-height:1.7;margin-bottom:1.25rem;">${featured.excerpt}</p>
+            <div style="display:flex;align-items:center;gap:1rem;font-size:var(--fs-xs);color:var(--c-ink-4);">
+              <span>${featured.date}</span><span>·</span><span>${featured.readTime}</span>
+            </div>
+          </div>
+        </a>`;
+    }
+
+    function renderGrid(filterObj) {
+      const grid = document.getElementById('insightsGrid');
+      const empty = document.getElementById('insightsEmpty');
+      const label = document.getElementById('resultsLabel');
+      const data = filterObj.type === 'all'
+        ? BLOGS_DATA
+        : BLOGS_DATA.filter(b => b.category === filterObj.value);
+      label.textContent = filterObj.type === 'all'
+        ? 'All Articles'
+        : `${filterObj.value} Articles`;
+      if(!data.length){ grid.innerHTML=''; empty.style.display='block'; return; }
+      empty.style.display='none';
+      grid.innerHTML = data.map(b => `
+        <article class="blog-card reveal">
+          <a href="blog-post.html?id=${b.id}" class="blog-card-image"><img src="${b.image}" alt="${b.title}" loading="lazy"></a>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-cat">${b.category}</span><span class="blog-card-date">${b.date}</span></div>
+            <h3 class="blog-card-title"><a href="blog-post.html?id=${b.id}">${b.title}</a></h3>
+            <p class="blog-card-excerpt">${b.excerpt}</p>
+            <div class="blog-card-footer">
+              <a href="blog-post.html?id=${b.id}" class="blog-card-read">Read More <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <span class="blog-card-readtime"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${b.readTime}</span>
+            </div>
+          </div>
+        </article>`).join('');
+      const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:0.1});
+      grid.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    }
+
+    function updateCategoryUrl(filterObj) {
+      const base = 'insights.html';
+      if (filterObj.type === 'all') {
+        window.history.replaceState(null, '', base);
+      } else {
+        window.history.replaceState(null, '', `${base}?cat=${encodeURIComponent(filterObj.slug)}`);
+      }
+    }
+
+    const initialFilter = normalizeCategoryQuery(new URLSearchParams(window.location.search).get('cat'));
+    setActiveCategoryCard(initialFilter);
+    renderFeatured(initialFilter);
+    renderGrid(initialFilter);
+
+    document.getElementById('catCards').addEventListener('click', e => {
+      const card = e.target.closest('.cat-card');
+      if(!card) return;
+      const filterObj = {
+        type: card.dataset.filter.toLowerCase() === 'all' ? 'all' : 'category',
+        value: card.dataset.filter,
+        slug: card.dataset.filter.toLowerCase(),
+        label: card.dataset.filter
+      };
+      document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
+      card.classList.add('active');
+      updateCategoryUrl(filterObj);
+      renderFeatured(filterObj);
+      renderGrid(filterObj);
+    });
+  </script>
+</body>
+</html>

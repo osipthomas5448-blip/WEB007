@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | NexPress</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar" id="siteNavbar" role="banner"></header>
+  <div id="siteModals"></div>
+  <main>
+    <section class="error-page">
+      <div class="container text-center">
+        <div class="error-code" aria-hidden="true">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-desc">The page you're looking for doesn't exist, has been moved, or the URL may be incorrect.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;">
+          <a href="index.html" class="btn btn-primary btn-lg">Go to Homepage</a>
+          <a href="blog.html" class="btn btn-ghost btn-lg">Browse Insights</a>
+          <a href="contact.html" class="btn btn-ghost btn-lg">Contact Us</a>
+        </div>
+        <div style="max-width:580px;margin:0 auto;">
+          <p style="font-size:var(--fs-sm);color:var(--c-ink-4);margin-bottom:1.5rem;font-family:var(--ff-display);font-weight:var(--fw-medium);">Or explore these popular sections:</p>
+          <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
+            <a href="blog.html" class="badge badge-accent" style="font-size:var(--fs-sm);padding:.5rem 1rem;text-decoration:none;">Insights</a>
+            <a href="about.html" class="badge badge-surface" style="font-size:var(--fs-sm);padding:.5rem 1rem;text-decoration:none;">About</a>
+            <a href="industry.html" class="badge badge-surface" style="font-size:var(--fs-sm);padding:.5rem 1rem;text-decoration:none;">Industry</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="siteFooter"></footer>
+  <script src="js/page-shell.js"></script>
+  <script src="js/main.js"></script>
+  <script>PageShell.init('');</script>
+</body>
+</html>

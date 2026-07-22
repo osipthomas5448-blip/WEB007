@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — NexPress Business Intelligence</title>
+  <meta name="description" content="Learn about NexPress — our story, mission, values, and global presence as a premier business intelligence and consulting firm.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .about-hero { background: linear-gradient(135deg, #0D1117 0%, #161B26 50%, #1a2a5e 100%); padding: clamp(4rem,8vw,8rem) 0; position:relative; overflow:hidden; }
+    .about-hero::before { content:''; position:absolute; top:-30%; right:-15%; width:70%; height:160%; background:radial-gradient(ellipse, rgba(26,63,191,0.15) 0%, transparent 65%); pointer-events:none; }
+    .about-hero-content { position:relative; z-index:1; max-width:700px; }
+    .mvv-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:768px){ .mvv-grid{grid-template-columns:1fr;} }
+    .mvv-card { padding:2rem; border-radius:var(--r-xl); border:1px solid var(--c-border); background:var(--c-bg); }
+    .mvv-icon { font-size:2.5rem; margin-bottom:1rem; }
+    .mvv-title { font-family:var(--ff-display); font-weight:var(--fw-extrabold); font-size:var(--fs-xl); color:var(--c-ink); margin-bottom:0.75rem; }
+    .mvv-text { font-size:var(--fs-base); color:var(--c-ink-3); line-height:1.7; }
+    .values-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+    @media(max-width:900px){ .values-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:480px){ .values-grid{grid-template-columns:1fr;} }
+    .achievements-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--c-border); border:1px solid var(--c-border); border-radius:var(--r-xl); overflow:hidden; }
+    @media(max-width:720px){ .achievements-grid{grid-template-columns:repeat(2,1fr);} }
+    .ach-item { background:var(--c-bg); padding:2.5rem 1.5rem; text-align:center; }
+    .global-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+    @media(max-width:768px){ .global-grid{grid-template-columns:1fr;} }
+    .region-list { display:flex; flex-direction:column; gap:0.875rem; }
+    .region-item { display:flex; align-items:center; gap:1rem; padding:1rem 1.25rem; background:var(--c-surface); border-radius:var(--r-lg); border:1px solid var(--c-border); }
+    .region-flag { font-size:1.5rem; }
+    .region-name { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-sm); color:var(--c-ink); }
+    .region-detail { font-size:var(--fs-xs); color:var(--c-ink-4); margin-top:0.125rem; }
+    .global-img { width:100%; border-radius:var(--r-xl); aspect-ratio:4/3; object-fit:cover; box-shadow:var(--shadow-xl); }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="siteNavbar" role="banner"></header>
+  <div id="siteModals"></div>
+
+  <main>
+    <!-- Hero -->
+    <section class="about-hero" aria-label="About NexPress">
+      <div class="container">
+        <div class="about-hero-content">
+          <div style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .875rem;background:rgba(26,63,191,.2);border:1px solid rgba(26,63,191,.4);border-radius:var(--r-pill);font-family:var(--ff-display);font-weight:var(--fw-semibold);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:#7B93FF;margin-bottom:1.5rem;">Our Story</div>
+          <h1 style="font-family:var(--ff-display);font-size:clamp(var(--fs-3xl),5vw,var(--fs-hero));font-weight:var(--fw-extrabold);letter-spacing:var(--ls-tight);line-height:var(--lh-tight);color:#fff;margin-bottom:1.5rem;">Intelligence Built<br>for the <span style="background:linear-gradient(135deg,#7B93FF,#5B7BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">World's Leaders</span></h1>
+          <p style="font-size:var(--fs-md);color:rgba(226,232,240,.75);line-height:var(--lh-relaxed);max-width:540px;">NexPress was founded on a single conviction: that business leaders deserve the same quality of analysis available to the world's best-resourced institutions — delivered with clarity, speed, and independence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission / Vision / Purpose -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center"><div class="section-eyebrow" style="justify-content:center;">What Drives Us</div><h2 class="section-title">Mission, Vision &amp; Purpose</h2></div>
+        <div class="mvv-grid reveal">
+          <div class="mvv-card">
+            <div class="mvv-icon">🎯</div>
+            <h3 class="mvv-title">Our Mission</h3>
+            <p class="mvv-text">To provide enterprise leaders with the most rigorous, independent, and actionable business intelligence available — empowering better decisions at every level of the organization.</p>
+          </div>
+          <div class="mvv-card" style="background:var(--c-accent);border-color:var(--c-accent);">
+            <div class="mvv-icon">🔭</div>
+            <h3 class="mvv-title" style="color:#fff;">Our Vision</h3>
+            <p class="mvv-text" style="color:rgba(255,255,255,.8);">A world where every major business decision is informed by data, shaped by expertise, and made with a clear understanding of the risks and opportunities ahead.</p>
+          </div>
+          <div class="mvv-card">
+            <div class="mvv-icon">⚡</div>
+            <h3 class="mvv-title">Our Purpose</h3>
+            <p class="mvv-text">To close the intelligence gap between the world's most powerful institutions and the companies and leaders working to build what comes next — regardless of their size or resources.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Story -->
+    <section class="section" style="background:var(--c-surface);">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="reveal">
+          <div>
+            <div class="section-eyebrow">Our Story</div>
+            <h2 class="section-title">Founded on the Belief That Better Information Builds Better Companies</h2>
+            <p style="font-size:var(--fs-md);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:1.25rem;">NexPress was established in Washington, DC in 2014 by a group of former strategy consultants and financial analysts who had spent careers at the world's leading research and intelligence organizations. What they found, again and again, was that the best intelligence rarely reached the people who needed it most.</p>
+            <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:1.25rem;">We built NexPress to change that. Starting with a weekly briefing that grew to 10,000 subscribers in its first year, we have expanded into a full-spectrum intelligence platform serving enterprise clients across 38 countries.</p>
+            <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);">Today, NexPress publishes over 200 research reports annually and provides custom intelligence to some of the world's most significant institutions — all under a model of strict editorial independence.</p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Modern consulting office" style="width:100%;border-radius:var(--r-xl);aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow-xl);" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header text-center"><div class="section-eyebrow" style="justify-content:center;">Core Values</div><h2 class="section-title">What We Stand For</h2></div>
+        <div class="values-grid reveal">
+          <div class="value-card">
+            <div class="value-icon">🔍</div>
+            <h3 class="value-title">Intellectual Rigor</h3>
+            <p class="value-desc">Every analysis is grounded in evidence. We challenge assumptions, stress-test conclusions, and never settle for the obvious answer.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⚖️</div>
+            <h3 class="value-title">Independence</h3>
+            <p class="value-desc">Our editorial decisions are never influenced by advertisers, investors, or the subjects of our analysis. Our credibility is our product.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌐</div>
+            <h3 class="value-title">Global Perspective</h3>
+            <p class="value-desc">The most important business questions don't respect borders. We bring a genuinely international lens to every issue we analyze.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">💡</div>
+            <h3 class="value-title">Clarity of Insight</h3>
+            <p class="value-desc">Intelligence is only valuable if it's understood. We write for decision-makers, not academics — clear, direct, and always actionable.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3 class="value-title">Client Partnership</h3>
+            <p class="value-desc">We succeed when our clients succeed. Every engagement is designed to build lasting capability, not dependency.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🏗️</div>
+            <h3 class="value-title">Long-Term Thinking</h3>
+            <p class="value-desc">The pressures of short-term performance are real, but we believe the best decisions are always made with a long-term orientation.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🎓</div>
+            <h3 class="value-title">Continuous Learning</h3>
+            <p class="value-desc">The business world changes constantly. We invest heavily in developing expertise so our clients always have access to the most current thinking.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🔒</div>
+            <h3 class="value-title">Confidentiality</h3>
+            <p class="value-desc">Client engagements are handled with absolute discretion. Our clients trust us with sensitive information, and we take that responsibility seriously.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="section-sm" style="background:var(--c-surface);">
+      <div class="container">
+        <div class="section-header text-center"><div class="section-eyebrow" style="justify-content:center;">By the Numbers</div><h2 class="section-title">A Decade of Impact</h2></div>
+        <div class="achievements-grid reveal">
+          <div class="ach-item">
+            <div class="achievement-number" data-target="45" data-suffix="K+">45K+</div>
+            <div class="achievement-label">Active Subscribers</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="200" data-suffix="+">200+</div>
+            <div class="achievement-label">Reports Per Year</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="38">38</div>
+            <div class="achievement-label">Countries Served</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="12">12</div>
+            <div class="achievement-label">Years of Excellence</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="96" data-suffix="%">96%</div>
+            <div class="achievement-label">Client Satisfaction</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="500" data-suffix="+">500+</div>
+            <div class="achievement-label">Enterprise Clients</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="18">18</div>
+            <div class="achievement-label">Industry Verticals</div>
+          </div>
+          <div class="ach-item">
+            <div class="achievement-number" data-target="4">4</div>
+            <div class="achievement-label">Global Offices</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;" class="reveal">
+          <div>
+            <div class="section-eyebrow">Our Journey</div>
+            <h2 class="section-title">A Decade of Building the Intelligence Standard</h2>
+            <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:2rem;">From a weekly newsletter to a global intelligence platform — here is how NexPress grew into one of the most trusted names in business analysis.</p>
+            <a href="contact.html" class="btn btn-primary">Partner With Us</a>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-title">Founded in Washington, DC</div>
+              <div class="timeline-desc">A team of six former strategy consultants launched the NexPress weekly briefing to 500 beta subscribers.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-title">10,000 Subscribers &amp; First Enterprise Clients</div>
+              <div class="timeline-desc">The briefing crossed 10,000 subscribers and NexPress began supporting enterprise research partners with custom insight programs.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2018</div>
+              <div class="timeline-title">Research Platform Launch</div>
+              <div class="timeline-desc">Launched the full research platform with sector-specific reports, proprietary data, and the annual NexPress Global Strategy Survey.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-title">London &amp; Singapore Offices</div>
+              <div class="timeline-desc">Expanded internationally to serve European and Asia-Pacific clients. Subscriber base surpassed 25,000.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-title">Expanded Research Coverage</div>
+              <div class="timeline-desc">Expanded our editorial research and custom intelligence capabilities to support deeper sector coverage and executive decision-making.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2026</div>
+              <div class="timeline-title">45,000+ Subscribers Worldwide</div>
+              <div class="timeline-desc">Today NexPress serves 500+ enterprise clients across 38 countries, publishing 200+ reports annually from four global offices.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Presence -->
+    <section class="section" style="background:var(--c-surface);">
+      <div class="container">
+        <div class="section-header text-center"><div class="section-eyebrow" style="justify-content:center;">Global Presence</div><h2 class="section-title">Intelligence Without Borders</h2><p class="section-lead" style="margin:0 auto;">Our analysts are embedded in the world's most important business centers, giving our clients a genuinely local perspective on global issues.</p></div>
+        <div class="global-grid reveal">
+          <div class="region-list">
+            <div class="region-item">
+              <div class="region-flag">🇺🇸</div>
+              <div><div class="region-name">Washington, DC — Headquarters</div><div class="region-detail">North American coverage, government &amp; policy intelligence</div></div>
+            </div>
+            <div class="region-item">
+              <div class="region-flag">🇬🇧</div>
+              <div><div class="region-name">London, United Kingdom</div><div class="region-detail">European markets, financial services &amp; regulatory intelligence</div></div>
+            </div>
+            <div class="region-item">
+              <div class="region-flag">🇸🇬</div>
+              <div><div class="region-name">Singapore</div><div class="region-detail">Asia-Pacific coverage, emerging markets &amp; supply chain</div></div>
+            </div>
+            <div class="region-item">
+              <div class="region-flag">🇦🇪</div>
+              <div><div class="region-name">Dubai, UAE</div><div class="region-detail">Middle East &amp; Africa, sovereign wealth &amp; energy sectors</div></div>
+            </div>
+          </div>
+          <div>
+            <img class="global-img" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=700&q=80" alt="Global business map" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container">
+        <div style="background:linear-gradient(135deg,var(--c-accent),var(--c-accent-mid));border-radius:var(--r-2xl);padding:clamp(3rem,6vw,5rem);text-align:center;" class="reveal">
+          <h2 style="font-family:var(--ff-display);font-size:clamp(var(--fs-xl),3.5vw,var(--fs-3xl));font-weight:var(--fw-extrabold);color:#fff;letter-spacing:var(--ls-tight);margin-bottom:1rem;">Ready to Work With Us?</h2>
+          <p style="color:rgba(255,255,255,.75);font-size:var(--fs-md);max-width:500px;margin:0 auto 2rem;line-height:var(--lh-relaxed);">Whether you need research subscriptions, custom intelligence, or a strategic editorial partner, we'd love to talk.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn-white btn-lg">Get in Touch</a>
+            <a href="blog.html" class="btn btn-ghost btn-lg" style="color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.3);">Browse Insights</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="siteFooter"></footer>
+
+  <script src="js/page-shell.js"></script>
+  <script src="js/main.js"></script>
+  <script>PageShell.init('About');</script>
+</body>
+</html>

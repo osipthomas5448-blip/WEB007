@@ -1,0 +1,101 @@
+===========================================================
+  HOW TO ADD A NEW BLOG POST TO NEXPRESS
+  (No coding experience needed!)
+===========================================================
+
+Step 1: Open the file  data/blogs-data.js  in any text editor
+        (Notepad, VS Code, Sublime Text, etc.)
+
+Step 2: Scroll to the bottom of the file, just ABOVE the line that says:
+           if (typeof module !== 'undefined') ...
+
+Step 3: After the last blog object (which ends with  },  ), add a comma
+        if there isn't one, then paste in the following template:
+
+-------- COPY FROM HERE ----------------------------------------
+
+  {
+    id: "your-unique-post-slug",
+    title: "Your Blog Post Title Here",
+    category: "Strategy",
+    categorySlug: "strategy",
+    date: "June 15, 2026",
+    author: "NexPress Editorial",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-XXXXXXXXXX?w=800&q=80",
+    excerpt: "A short 1-2 sentence summary that appears on the blog listing page.",
+    featured: false,
+    tags: ["Tag1", "Tag2", "Tag3"],
+    content: `
+      <p>Your first paragraph goes here.</p>
+
+      <h2>A Section Heading</h2>
+      <p>Your next paragraph goes here.</p>
+
+      <h2>Another Section Heading</h2>
+      <p>More content here.</p>
+    `
+  },
+
+-------- COPY TO HERE ------------------------------------------
+
+Step 4: Fill in each field:
+
+   id             → A unique URL-friendly identifier. Use lowercase letters,
+                    numbers, and hyphens only. No spaces.
+                    Example: "my-new-article-june-2026"
+
+   title          → The full title of your blog post.
+
+   category       → One of: Technology, Finance, Strategy, Leadership,
+                    Operations, Industry  (or any new category you like)
+
+   categorySlug   → Same as category but all lowercase, no spaces.
+                    Example: "technology", "finance", "strategy"
+
+   date           → The publish date in plain English.
+                    Example: "June 15, 2026"
+
+   author         → Usually "NexPress Editorial" or your author name.
+
+   readTime       → Estimated reading time.
+                    Example: "5 min read"
+
+   image          → A URL to a high-quality image.
+                    Tip: Use https://unsplash.com, find a photo,
+                    click Download, copy the URL, and add ?w=800&q=80 at the end.
+
+   excerpt        → A 1-2 sentence summary shown on the blog listing page.
+
+   featured       → Set to  true  to feature this post prominently on the
+                    homepage, or  false  for a standard listing.
+
+   tags           → A list of short topic tags in square brackets.
+                    Example: ["Strategy", "Finance", "Global"]
+
+   content        → The full article body, written in HTML.
+                    Use <p> for paragraphs, <h2> for section headings,
+                    <strong> for bold text, <em> for italic text.
+                    Wrap the entire content in backticks (`) not quote marks.
+
+Step 5: Save the file. That's it!
+
+The blog post will now automatically appear:
+  - On the Blog page (blog.html) as a new card
+  - As a full article accessible at blog-post.html?id=your-unique-post-slug
+  - If featured: true, in the Featured section on the Homepage
+
+===========================================================
+  TIPS & TRICKS
+===========================================================
+
+• Make sure every object ends with a comma  ,  except the very last one.
+• The id must be unique — no two posts can share the same id.
+• For images from Unsplash, look for the photo ID in the URL and use:
+    https://images.unsplash.com/photo-[ID]?w=800&q=80
+• If the page shows a blank card, check for missing commas or quotes
+  using your browser's Console (press F12 → Console tab).
+• Category names are case-sensitive: "Technology" not "technology".
+
+Need help? Contact the developer or email info@nexpress.com
+===========================================================

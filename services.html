@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — NexPress Intelligence</title>
+  <meta name="description" content="NexPress research and intelligence offerings: strategic analysis, market foresight, risk insight, and executive research subscriptions.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .research-hero { background:linear-gradient(135deg,#0D1117 0%,#1a2a5e 100%); padding:clamp(4rem,8vw,8rem) 0; }
+    .research-detail-card { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin-bottom:5rem; }
+    .research-detail-card:last-child { margin-bottom:0; }
+    .research-detail-card.reverse { direction:rtl; }
+    .research-detail-card.reverse > * { direction:ltr; }
+    @media(max-width:768px){ .research-detail-card,.research-detail-card.reverse{grid-template-columns:1fr;direction:ltr;} }
+    .svc-img { width:100%; border-radius:var(--r-xl); aspect-ratio:4/3; object-fit:cover; box-shadow:var(--shadow-lg); }
+    .svc-num { font-family:var(--ff-display); font-weight:var(--fw-extrabold); font-size:4rem; color:var(--c-surface-alt); line-height:1; margin-bottom:0.5rem; }
+    .svc-list { display:flex; flex-direction:column; gap:0.625rem; margin:1.25rem 0 1.75rem; }
+    .svc-list-item { display:flex; align-items:center; gap:0.75rem; font-size:var(--fs-sm); color:var(--c-ink-3); }
+    .svc-list-item::before { content:''; width:6px; height:6px; background:var(--c-accent); border-radius:50%; flex-shrink:0; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:768px){ .pricing-grid{grid-template-columns:1fr;} }
+    .pricing-card { border:1px solid var(--c-border); border-radius:var(--r-2xl); padding:2.5rem 2rem; background:var(--c-bg); position:relative; transition:all var(--trans-base); }
+    .pricing-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-4px); }
+    .pricing-card.featured { border-color:var(--c-accent); background:var(--c-accent); }
+    .pricing-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--c-ink); color:#fff; padding:0.25rem 1rem; border-radius:var(--r-pill); font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-xs); white-space:nowrap; }
+    .pricing-tier { font-family:var(--ff-display); font-weight:var(--fw-semibold); font-size:var(--fs-sm); margin-bottom:0.75rem; }
+    .pricing-price { font-family:var(--ff-display); font-weight:var(--fw-extrabold); font-size:var(--fs-3xl); letter-spacing:var(--ls-tight); margin-bottom:0.25rem; line-height:1; }
+    .pricing-period { font-size:var(--fs-xs); margin-bottom:1.25rem; }
+    .pricing-desc { font-size:var(--fs-sm); line-height:1.6; margin-bottom:1.75rem; }
+    .pricing-features { display:flex; flex-direction:column; gap:0.625rem; margin-bottom:2rem; }
+    .pricing-feature { display:flex; align-items:center; gap:0.75rem; font-size:var(--fs-sm); }
+    .pricing-feature svg { width:15px; height:15px; flex-shrink:0; }
+  </style>
+</head>
+<body>
+  <header class="navbar" id="siteNavbar" role="banner"></header>
+  <div id="siteModals"></div>
+
+  <main>
+    <section class="research-hero" aria-label="Research hero">
+      <div class="container">
+        <div style="max-width:680px;">
+          <div style="display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .875rem;background:rgba(26,63,191,.2);border:1px solid rgba(26,63,191,.4);border-radius:var(--r-pill);font-family:var(--ff-display);font-weight:var(--fw-semibold);font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:#7B93FF;margin-bottom:1.5rem;">Research Focus</div>
+          <h1 style="font-family:var(--ff-display);font-size:clamp(var(--fs-3xl),5vw,var(--fs-hero));font-weight:var(--fw-extrabold);letter-spacing:var(--ls-tight);line-height:var(--lh-tight);color:#fff;margin-bottom:1.5rem;">Intelligence and<br><span style="background:linear-gradient(135deg,#7B93FF,#5B7BFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Action for Leaders</span></h1>
+          <p style="font-size:var(--fs-md);color:rgba(226,232,240,.75);line-height:var(--lh-relaxed);margin-bottom:2rem;">Explore research programs, market intelligence, and executive briefings designed to help senior teams make faster, more confident decisions in uncertain times.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <button class="btn btn-white btn-lg" data-cta data-cta-title="Request Research" data-cta-desc="Tell us about your research priorities and we'll connect you with the right insights.">Request Research</button>
+            <a href="#research-detail" class="btn btn-ghost btn-lg" style="color:rgba(226,232,240,.7);border-color:rgba(226,232,240,.25);">Explore Insights</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Detail -->
+    <section class="section" id="research-detail">
+      <div class="container">
+        <div class="section-header text-center"><div class="section-eyebrow" style="justify-content:center;">What We Offer</div><h2 class="section-title">Research That Moves Strategy</h2><p class="section-lead" style="margin:0 auto;">A portfolio of research programs, intelligence briefs, and market analysis created for enterprise leaders facing complex, strategic decisions.</p></div>
+
+        <div style="margin-top:4rem;">
+
+          <div class="research-detail-card reveal">
+            <div>
+              <div class="svc-num">01</div>
+              <div class="section-eyebrow">Research Focus</div>
+              <h2 style="font-family:var(--ff-display);font-size:var(--fs-2xl);font-weight:var(--fw-extrabold);color:var(--c-ink);letter-spacing:var(--ls-tight);margin-bottom:1rem;">Strategic Insight</h2>
+              <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:1rem;">In-depth analysis of corporate strategy, market dynamics, and competitive positioning to help boards and executives make decisions with confidence.</p>
+              <div class="svc-list">
+                <div class="svc-list-item">Market-moving strategy analysis</div>
+                <div class="svc-list-item">Competitive positioning research</div>
+                <div class="svc-list-item">Portfolio and growth outlooks</div>
+                <div class="svc-list-item">Executive briefing notes</div>
+                <div class="svc-list-item">Scenario and implications studies</div>
+              </div>
+              <button class="btn btn-primary" data-cta data-cta-title="Strategic Insight Request" data-cta-desc="Tell us what strategic questions you want answered and we'll prepare the right research." >Request Strategic Insight</button>
+            </div>
+            <img class="svc-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&q=80" alt="Executive research discussion" loading="lazy">
+          </div>
+
+          <div class="research-detail-card reverse reveal">
+            <div>
+              <div class="svc-num">02</div>
+              <div class="section-eyebrow">Research Focus</div>
+              <h2 style="font-family:var(--ff-display);font-size:var(--fs-2xl);font-weight:var(--fw-extrabold);color:var(--c-ink);letter-spacing:var(--ls-tight);margin-bottom:1rem;">Digital Economy</h2>
+              <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:1rem;">The latest analysis on AI, digital transformation, platform strategy, and how emerging technologies are reshaping enterprise value chains.</p>
+              <div class="svc-list">
+                <div class="svc-list-item">AI adoption and readiness research</div>
+                <div class="svc-list-item">Digital business model evaluation</div>
+                <div class="svc-list-item">Technology-driven disruption mapping</div>
+                <div class="svc-list-item">Data and analytics capability reviews</div>
+                <div class="svc-list-item">Digital transformation signal tracking</div>
+              </div>
+              <button class="btn btn-primary" data-cta data-cta-title="Digital Research Request" data-cta-desc="Request analysis on digital economy trends and technology strategy." >Request Digital Research</button>
+            </div>
+            <img class="svc-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80" alt="Digital economy research" loading="lazy">
+          </div>
+
+          <div class="research-detail-card reveal">
+            <div>
+              <div class="svc-num">03</div>
+              <div class="section-eyebrow">Research Focus</div>
+              <h2 style="font-family:var(--ff-display);font-size:var(--fs-2xl);font-weight:var(--fw-extrabold);color:var(--c-ink);letter-spacing:var(--ls-tight);margin-bottom:1rem;">Risk & Regulation</h2>
+              <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:1rem;">Signal-driven analysis of geopolitical volatility, regulatory change, reputation risk, and resilience strategies for leaders managing uncertainty.</p>
+              <div class="svc-list">
+                <div class="svc-list-item">Geopolitical risk and policy outlooks</div>
+                <div class="svc-list-item">Regulatory change tracking</div>
+                <div class="svc-list-item">Reputation and ESG risk analysis</div>
+                <div class="svc-list-item">Supply chain and operational resilience</div>
+                <div class="svc-list-item">Scenario planning intelligence</div>
+              </div>
+              <button class="btn btn-primary" data-cta data-cta-title="Risk Research Request" data-cta-desc="Request research on risk, regulation, and resilience for your operating environment." >Request Risk Research</button>
+            </div>
+            <img class="svc-img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=700&q=80" alt="Risk research analysis" loading="lazy">
+          </div>
+
+          <div class="research-detail-card reverse reveal">
+            <div>
+              <div class="svc-num">04</div>
+              <div class="section-eyebrow">Research Focus</div>
+              <h2 style="font-family:var(--ff-display);font-size:var(--fs-2xl);font-weight:var(--fw-extrabold);color:var(--c-ink);letter-spacing:var(--ls-tight);margin-bottom:1rem;">Sector Intelligence</h2>
+              <p style="font-size:var(--fs-base);color:var(--c-ink-3);line-height:var(--lh-relaxed);margin-bottom:1rem;">Custom sector deep-dives, market outlooks, and competitive intelligence tailored to the industries most critical to your strategy.</p>
+              <div class="svc-list">
+                <div class="svc-list-item">Sector and industry deep-dives</div>
+                <div class="svc-list-item">Competitive and market landscape analysis</div>
+                <div class="svc-list-item">Proprietary survey benchmarking</div>
+                <div class="svc-list-item">Executive briefings and board notes</div>
+                <div class="svc-list-item">Ongoing intelligence monitoring</div>
+              </div>
+              <button class="btn btn-primary" data-cta data-cta-title="Sector Research Request" data-cta-desc="Request sector-specific intelligence and market outlooks." >Request Sector Research</button>
+            </div>
+            <img class="svc-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80" alt="Sector intelligence research" loading="lazy">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" style="background:var(--c-surface);" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header text-center"><div class="section-eyebrow" style="justify-content:center;">Research Subscriptions</div><h2 class="section-title" id="pricing-heading">Access the Full Intelligence Library</h2><p class="section-lead" style="margin:0 auto;">Transparent access plans for individual leaders, small research teams, and enterprise organizations.</p></div>
+        <div class="pricing-grid reveal">
+          <div class="pricing-card">
+            <div class="pricing-tier" style="color:var(--c-ink-3);">Essential</div>
+            <div class="pricing-price" style="color:var(--c-ink);">$49</div>
+            <div class="pricing-period" style="color:var(--c-ink-4);">per month, billed annually</div>
+            <p class="pricing-desc" style="color:var(--c-ink-3);">Perfect for individual practitioners and managers who want to stay ahead of key trends.</p>
+            <div class="pricing-features">
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Weekly intelligence briefing</div>
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Access to 50+ reports/year</div>
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Email &amp; chat support</div>
+              <div class="pricing-feature" style="color:var(--c-ink-5);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-ink-5)" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>Full report archive</div>
+              <div class="pricing-feature" style="color:var(--c-ink-5);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-ink-5)" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>Priority analyst access</div>
+            </div>
+            <button class="btn btn-secondary btn-lg" data-cta data-cta-title="Essential Plan" style="width:100%;justify-content:center;">Get Started</button>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-tier" style="color:rgba(255,255,255,.8);">Professional</div>
+            <div class="pricing-price" style="color:#fff;">$149</div>
+            <div class="pricing-period" style="color:rgba(255,255,255,.6);">per month, billed annually</div>
+            <p class="pricing-desc" style="color:rgba(255,255,255,.75);">For senior leaders and strategists who need comprehensive access and priority support.</p>
+            <div class="pricing-features">
+              <div class="pricing-feature" style="color:rgba(255,255,255,.85);"><svg fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.9)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Everything in Essential</div>
+              <div class="pricing-feature" style="color:rgba(255,255,255,.85);"><svg fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.9)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Full research archive (200+)</div>
+              <div class="pricing-feature" style="color:rgba(255,255,255,.85);"><svg fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.9)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Monthly analyst Q&amp;A call</div>
+              <div class="pricing-feature" style="color:rgba(255,255,255,.85);"><svg fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.9)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Priority email support</div>
+              <div class="pricing-feature" style="color:rgba(255,255,255,.6);"><svg fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,.4)" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>Custom research briefs</div>
+            </div>
+            <button class="btn btn-white btn-lg" data-cta data-cta-title="Professional Plan" style="width:100%;justify-content:center;color:var(--c-accent);">Get Started</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-tier" style="color:var(--c-ink-3);">Enterprise</div>
+            <div class="pricing-price" style="color:var(--c-ink);">Custom</div>
+            <div class="pricing-period" style="color:var(--c-ink-4);">for teams of 5 or more</div>
+            <p class="pricing-desc" style="color:var(--c-ink-3);">Full-spectrum intelligence platform with enterprise research and analysis support for large organizations.</p>
+            <div class="pricing-features">
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Everything in Professional</div>
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Unlimited team seats</div>
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Custom research briefings</div>
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Dedicated account team</div>
+              <div class="pricing-feature" style="color:var(--c-ink-3);"><svg fill="none" viewBox="0 0 24 24" stroke="var(--c-success)" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Analyst hours included</div>
+            </div>
+            <button class="btn btn-secondary btn-lg" data-cta data-cta-title="Enterprise Plan" style="width:100%;justify-content:center;">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section">
+      <div class="container">
+        <div style="background:linear-gradient(135deg,var(--c-accent),var(--c-accent-mid));border-radius:var(--r-2xl);padding:clamp(3rem,6vw,5rem);text-align:center;" class="reveal">
+          <h2 style="font-family:var(--ff-display);font-size:clamp(var(--fs-xl),3.5vw,var(--fs-3xl));font-weight:var(--fw-extrabold);color:#fff;margin-bottom:1rem;">Need Help Finding the Right Research?</h2>
+          <p style="color:rgba(255,255,255,.75);font-size:var(--fs-md);max-width:520px;margin:0 auto 2rem;line-height:1.7;">Our team will help you identify the research, reports, and intelligence products that are most relevant to your strategy and market challenges.</p>
+          <button class="btn btn-white btn-lg" data-cta data-cta-title="Let's Find the Right Research" data-cta-desc="Tell us about your priorities and we'll recommend the best research and insights." >Book a Research Consultation</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="siteFooter"></footer>
+  <script src="js/page-shell.js"></script>
+  <script src="js/main.js"></script>
+  <script>PageShell.init('Research');</script>
+</body>
+</html>
